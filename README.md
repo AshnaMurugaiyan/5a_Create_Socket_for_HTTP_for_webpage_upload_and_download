@@ -104,12 +104,10 @@ button{padding:10px;background:green;color:white;border:none}
 </body>
 </html>
 ```
-ashna.txt
-```
-<img width="813" height="610" alt="Screenshot 2026-03-18 132443" src="https://github.com/user-attachments/assets/c1172339-8daf-4f89-ba23-c70225cef1cc" />
-```
+
 ## OUTPUT
 <img width="1652" height="972" alt="Screenshot 2026-03-18 133055" src="https://github.com/user-attachments/assets/7c5818e2-46fe-4ea7-bd96-886bb0fc692c" />
+<img width="813" height="610" alt="Screenshot 2026-03-18 132443" src="https://github.com/user-attachments/assets/159935e1-45af-4ccb-ab64-2e3cb4960f25" />
 
 
 ## Result
