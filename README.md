@@ -16,44 +16,7 @@ To write a PYTHON program for socket for HTTP for web page upload and download
 6.Stop the program
 <BR>
 ## Program 
-## SERVER.PY 
-```
-import socket
-
-s = socket.socket()
-s.bind(("localhost",8080))
-s.listen(1)
-
-print("Server running...")
-
-while True:
-    c,addr = s.accept()
-    
-    request = c.recv(1024).decode()
-    print("Request received")
-
-    if "GET" in request:
-        f = open("index.html","r")
-        data = f.read()
-        f.close()
-
-        response = "HTTP/1.1 200 OK\n\n" + data
-        c.send(response.encode())
-
-    elif "POST" in request:
-        data = request.split("\n\n")[1]
-
-        f = open("upload.txt","w")
-        f.write(data)
-        f.close()
-
-        c.send("HTTP/1.1 200 OK\n\nFile Uploaded".encode())
-
-    c.close()
-
-```
-
-## CLIENT.PY:
+server.py
 ```
 import socket
 
@@ -81,19 +44,72 @@ else:
     print(data.decode())
 
 s.close()
+
 ```
-## INDEX.HTML:
+
+client.py
 ```
+import socket
+
+s = socket.socket()
+s.bind(("localhost",8080))
+s.listen(1)
+
+print("Server running...")
+
+while True:
+    c,addr = s.accept()
+    
+    request = c.recv(1024).decode()
+    print("Request received")
+
+    if "GET" in request:
+        f = open("cn.html","r")
+        data = f.read()
+        f.close()
+
+        response = "HTTP/1.1 200 OK\n\n" + data
+        c.send(response.encode())
+
+    elif "POST" in request:
+        data = request.split("\n\n")[1]
+
+        f = open("ashna.txt","w")
+        f.write(data)
+        f.close()
+
+        c.send("HTTP/1.1 200 OK\n\nFile Uploaded".encode())
+
+    c.close()
+```
+index.html
+```
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Simple HTTP Server</title>
+<title>My Page</title>
+<style>
+body{font-family:Arial;text-align:center;background:#f2f2f2}
+h1{color:rgb(130, 9, 66)}
+button{padding:10px;background:green;color:white;border:none}
+</style>
 </head>
+
 <body>
-    <h1>Hello </h1>
+<h1>Welcome</h1>
+<p>Good Day</p>
+
+<button onclick="alert('Hello! Have a Nice Day')">Click Me</button>
+
 </body>
 </html>
 ```
+ashna.txt
+<img width="813" height="610" alt="Screenshot 2026-03-18 132443" src="https://github.com/user-attachments/assets/c1172339-8daf-4f89-ba23-c70225cef1cc" />
+
 ## OUTPUT
+<img width="1652" height="972" alt="Screenshot 2026-03-18 133055" src="https://github.com/user-attachments/assets/7c5818e2-46fe-4ea7-bd96-886bb0fc692c" />
+
 
 ## Result
 Thus the socket for HTTP for web page upload and download created and Executed
